@@ -2,6 +2,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("io.micronaut.application") version "4.4.0"
     id("io.micronaut.aot") version "4.4.0"
+//    id("io.spring.dependency-management") version "1.1.6"
 }
 
 version = "0.1"
@@ -26,7 +27,8 @@ dependencies {
     implementation("io.micronaut.validation:micronaut-validation")
     implementation("jakarta.validation:jakarta.validation-api")
     implementation("org.springframework.boot:spring-boot-starter")
-    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("io.micronaut.beanvalidation:micronaut-hibernate-validator")
+    implementation("org.springframework:spring-webflux")
     compileOnly("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("io.micronaut.spring:micronaut-spring-boot")
@@ -35,6 +37,8 @@ dependencies {
     testAnnotationProcessor("io.micronaut.spring:micronaut-spring-web-annotation")
     testImplementation("io.micronaut:micronaut-http-client")
 //    testImplementation("io.micronaut.json-schema:micronaut-json-schema-validation")
+    testImplementation("org.springframework.boot:spring-boot-starter-webflux:3.3.2")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:3.3.2")
 }
 
 
